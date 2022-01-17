@@ -1,22 +1,22 @@
 package com.example.audiorecordsample;
-
+/*
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.util.Log;
 
-/**
- * AudioRecord クラスのサンプルコード
- */
+
+// AudioRecord クラスのサンプルコード
+
 import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
 import android.util.Log
 import kotlin.math.max
 
-/**
- * AudioRecord クラスのサンプルコード
- */
+
+// AudioRecord クラスのサンプルコード
+
 class AudioRecordSample {
 
     // サンプリングレート (Hz)
@@ -86,3 +86,4 @@ class AudioRecordSample {
         audioRecord.startRecording()
     }
 }
+*/
