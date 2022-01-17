@@ -6,7 +6,7 @@ import android.media.AudioFormat
 import android.media.AudioRecord
 import android.media.MediaRecorder
 import android.util.Log
-import java.lang.Math.max
+import kotlin.math.max
 
 
 // AudioRecord クラスのサンプルコード
