@@ -2,8 +2,10 @@ package com.example.notepad;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends AppCompatActivity {
@@ -12,6 +14,9 @@ public class DisplayMessageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
+
+        @SuppressLint("WrongViewCast") Button returnButton = findViewById(R.id.textView);
+        returnButton.setOnClickListener(v -> finish());
 
         // Get the Intent that started this activity and extract the String
         String message = getIntent().getStringExtra(EXTRA_MESSAGE);
