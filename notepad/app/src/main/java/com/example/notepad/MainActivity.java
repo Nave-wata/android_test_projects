@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button sendButton = findViewById(R.id.button);
-    }
 
-    public void sendMessage() {
-        Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
-        startActivity(intent);
+        sendButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
+            startActivity(intent);
+        });
     }
 }
