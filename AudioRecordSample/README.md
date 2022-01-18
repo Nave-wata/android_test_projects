@@ -9,3 +9,4 @@
 つぎの `activity_main.xml` に戻り，Nameにある...は `activity_main.xml` の`Design` 右上の `Attributes` を押す．
 
 [[Android] TextView で文字を表示](https://akira-watson.com/android/textview.html)
+[[Android] アプリの画面を遷移させる](https://akira-watson.com/android/activity-1.html)
