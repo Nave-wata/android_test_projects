@@ -18,6 +18,8 @@ public class DisplayMessageActivity extends AppCompatActivity {
         String message = getIntent().getStringExtra(EXTRA_MESSAGE);
 
         // Capture the layout's TextView and set the String as its text
-        String textView = "hello";
+        TextView textView = findViewById(R.id.textView);
+
+        textView.setText(message);
     }
 }
