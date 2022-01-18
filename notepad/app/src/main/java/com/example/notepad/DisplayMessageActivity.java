@@ -16,7 +16,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_message);
 
         @SuppressLint("WrongViewCast") Button returnButton = findViewById(R.id.textView);
-        returnButton.setOnClickListener(v -> finish());
 
         // Get the Intent that started this activity and extract the String
         String message = getIntent().getStringExtra(EXTRA_MESSAGE);
