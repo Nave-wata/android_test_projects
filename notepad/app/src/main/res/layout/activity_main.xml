@@ -13,8 +13,12 @@
         android:ems="10"
         android:hint="@string/edit_message"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="25dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
 
     <Button
         android:id="@+id/button"
@@ -22,7 +26,11 @@
         android:layout_height="wrap_content"
         android:hint="@string/button_send"
         android:onClick="sendMessage"
-        tools:layout_editor_absoluteX="290dp"
-        tools:layout_editor_absoluteY="23dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.038"
         tools:ignore="OnClick" />
 </android.support.constraint.ConstraintLayout>
