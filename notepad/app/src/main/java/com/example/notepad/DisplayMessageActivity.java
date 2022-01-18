@@ -15,13 +15,11 @@ public class DisplayMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
 
-        @SuppressLint("WrongViewCast") Button returnButton = findViewById(R.id.textView);
-
         // Get the Intent that started this activity and extract the String
         String message = getIntent().getStringExtra(EXTRA_MESSAGE);
 
         // Capture the layout's TextView and set the String as its text
         TextView textView = findViewById(R.id.textView);
-        textView.setText(message);
+        textView.setText("Hello Nave-wata!");
     }
 }
