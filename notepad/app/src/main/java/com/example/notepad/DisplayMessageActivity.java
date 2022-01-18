@@ -2,9 +2,8 @@ package com.example.notepad;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.WindowInsets;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends AppCompatActivity {
