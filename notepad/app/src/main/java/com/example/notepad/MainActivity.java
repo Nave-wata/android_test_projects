@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         Editable getText = edit.getText();
 
         Intent intent = new Intent(getApplication(), DisplayMessageActivity.class);
-        intent.putExtra("sendText", "hello world");
+        intent.putExtra("sendText", "I'm Nave-wata!");
         startActivity(intent);
     }
 }
