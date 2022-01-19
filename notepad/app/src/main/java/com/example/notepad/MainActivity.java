@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_DATA = "com.example.notepad.DATA";
+    public static String data1 = "Hello World!";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,9 +16,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button sendButton = findViewById(R.id.button);
-        String EXTRA_DATA = "com.example.notepad.DATA";
-        String data1 = "Hello World!";
-
         sendButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
             intent.putExtra("EXTRA_DATA", data1);
