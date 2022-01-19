@@ -21,9 +21,10 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessage(View view) {
         EditText edit = (EditText)findViewById(R.id.editTextTextPersonName);
         Editable getText = edit.getText();
+        String testText = "I'm testText";
 
         Intent intent = new Intent(getApplication(), DisplayMessageActivity.class);
-        intent.putExtra("sendText", "I'm Nave-wata!");
+        intent.putExtra("sendText", testText);
         startActivity(intent);
     }
 }
