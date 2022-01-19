@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button sendButton = findViewById(R.id.button);
         sendButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
+            Intent intent = new Intent(getApplication(), DisplayMessageActivity.class);
             intent.putExtra("EXTRA_DATA", data1);
             startActivity(intent);
         });
