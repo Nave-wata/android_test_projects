@@ -19,10 +19,10 @@ public class DisplayMessageActivity extends AppCompatActivity {
         // Get the Intent that started this activity and extract the String
         String message = getIntent().getStringExtra(EXTRA_MESSAGE);
         Intent intent = getIntent();
-        String data1 = getIntent().getStringExtra(MainActivity.data1);
+        //String data1 = getIntent().getStringExtra(MainActivity.data1);
 
         // Capture the layout's TextView and set the String as its text
         TextView textView = findViewById(R.id.textView);
-        textView.setText();
+        textView.setText("tmp");
     }
 }

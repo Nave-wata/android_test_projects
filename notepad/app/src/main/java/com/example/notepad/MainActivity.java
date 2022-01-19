@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu Menu) {
-        getMenuInflater().inflate(R.layout.activity_display_message, menu);
+    public void sendMessage(View view) {
+        Intent intent = new Intent(getApplication(), DisplayMessageActivity.class);
+        startActivity(intent);
     }
 }
