@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         EditText edit = (EditText)findViewById(R.id.editTextTextPersonName);
         Editable getText = edit.getText();
 
-         Intent intent = new Intent(getApplication(), DisplayMessageActivity.class);
-        // intent.putExtra("sendText", (Parcelable) edit);
+        Intent intent = new Intent(getApplication(), DisplayMessageActivity.class);
+        intent.putExtra("sendText", String.valueOf(edit));
         startActivity(intent);
     }
 }
