@@ -13,3 +13,7 @@
 - [【Android Studio】ボタンのクリックイベント 3つの書き方](https://codeforfun.jp/android-studio-how-to-set-button-click-event/)
 - [AndroidでEditTextから数値を取得](https://androidkaihatu.blog.fc2.com/blog-entry-45.html)
 - [[Java] EditTextコントロールのtext取得と設定（編集ボックス内テキスト）](https://www.ipentec.com/document/android-edittext-get-set-text)
+
+## ライセンス
+
+[MIT](https://github.com/Nave-wata/android_test_projects/blob/main/LICENSE)
