@@ -10,3 +10,4 @@
 
 [[Android] TextView で文字を表示](https://akira-watson.com/android/textview.html)
 [[Android] アプリの画面を遷移させる](https://akira-watson.com/android/activity-1.html)
+[[Android] アプリの画面遷移と Activity 間のデータ転送](https://akira-watson.com/android/activity-2.html)
