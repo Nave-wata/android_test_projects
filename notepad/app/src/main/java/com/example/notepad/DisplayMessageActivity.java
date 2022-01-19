@@ -23,6 +23,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         // Capture the layout's TextView and set the String as its text
         TextView textView = findViewById(R.id.textView);
-        textView.setText("Hello Nave-wata!");
+        textView.setText(data1);
     }
 }
