@@ -14,9 +14,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button sendButton = findViewById(R.id.button);
+        String data1 = "Hello World!";
 
         sendButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
+            intent.putExtra("EXTRA_DATA", data1);
             startActivity(intent);
         });
     }
