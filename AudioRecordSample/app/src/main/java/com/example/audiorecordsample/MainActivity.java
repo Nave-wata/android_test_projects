@@ -1,73 +1,80 @@
-package com.example.audiorecordsample;
+package com.moonlight_aska.android.recorder02;
 
+import android.app.Activity;
+import android.media.AudioFormat;
+import android.media.AudioRecord;
+import android.media.MediaRecorder;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+public class Recorder02 extends Activity implements View.OnClickListener {
+　　final static int SAMPLING_RATE = 11025;
+　　AudioRecord audioRec = null;
+　　Button btn = null;
+　　boolean bIsRecording = false;
+　　int bufSize;
+　　/** Called when the activity is first created. */
+        　　@Override
+　　public void onCreate(Bundle savedInstanceState) {
+　　　　super.onCreate(savedInstanceState);
+　　　　setContentView(R.layout.main);
 
-import com.example.audiorecordsample.databinding.ActivityMainBinding;
+　　　　btn = (Button)findViewById(R.id.button_id);
+　　　　btn.setOnClickListener(this);
+　　　　// バッファサイズの計算
+　　　　bufSize = AudioRecord.getMinBufferSize(
+                　　　　　　　　　　　SAMPLING_RATE,
+                　　　　　　　　　　　AudioFormat.CHANNEL_CONFIGURATION_MONO,
+                　　　　　　　　　　　AudioFormat.ENCODING_PCM_16BIT) * 2;
+　　　　// AudioRecordの作成
+　　　　audioRec = new AudioRecord(
+                　　　　　　　　　　　MediaRecorder.AudioSource.MIC,
+                　　　　　　　　　　　SAMPLING_RATE,
+                　　　　　　　　　　　AudioFormat.CHANNEL_CONFIGURATION_MONO,
+                　　　　　　　　　　　AudioFormat.ENCODING_PCM_16BIT,
+                　　　　　　　　　　　bufSize);
+　　}
 
-import android.view.Menu;
-import android.view.MenuItem;
+　　@Override
+　　public void onClick(View v) {
+　　　　// TODO Auto-generated method stub
+　　　　if (v == btn) {
+　　　　　　if (bIsRecording) {
+　　　　　　　　btn.setText(R.string.start_label);
+　　　　　　　　bIsRecording = false;
+　　　　　　}
+　　　　　　else {
+　　　　　　　　// 録音開始
+　　　　　　　　Log.v("AudioRecord", "startRecording");
+　　　　　　　　audioRec.startRecording();
+　　　　　　　　bIsRecording = true;
+　　　　　　　　// 録音スレッド
+　　　　　　　　new Thread(new Runnable() {
+　　　　　　　　　　@Override
+　　　　　　　　　　public void run() {
+　　　　　　　　　　　　byte buf[] = new byte[bufSize];
+　　　　　　　　　　　　// TODO Auto-generated method stub
+　　　　　　　　　　　　while (bIsRecording) {
+　　　　　　　　　　　　　　// 録音データ読み込み
+　　　　　　　　　　　　　　audioRec.read(buf, 0, buf.length);
+　　　　　　　　　　　　　　Log.v("AudioRecord", "read " + buf.length + " bytes");
+　　　　　　　　　　　　}
+　　　　　　　　　　　　// 録音停止
+　　　　　　　　　　　　Log.v("AudioRecord", "stop");
+　　　　　　　　　　　　audioRec.stop();
+　　　　　　　　　　}
+　　　　　　　　}).start();
+　　　　　　　　btn.setText(R.string.stop_label);
+　　　　　　}
+　　　　}
+　　}
 
-public class MainActivity extends AppCompatActivity {
-
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        setSupportActionBar(binding.toolbar);
-
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
+　　@Override
+　　protected void onDestroy() {
+　　　　// TODO Auto-generated method stub
+　　　　super.onDestroy();
+　　　　audioRec.release();
+　　}
 }
