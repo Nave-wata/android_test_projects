@@ -160,9 +160,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onError(int error) {
         Log.d("MainActivity","onError.error="+error);
-        //mAlert.setMessage(getString(R.string.speech_error) + "\nエラーコード：" + error);
-        //mAlert.show();
-        mText.setText(getString(R.string.speech_error) + "\nエラーコード：" + error);
+        mAlert.setMessage(getString(R.string.speech_error) + "\nエラーコード：" + error);
+        mAlert.show();
+        //mText.setText(getString(R.string.speech_error) + "\nエラーコード：" + error);
+        mText.setText(getString(R.string.speech_error));
         stopRecording();
     }
 
