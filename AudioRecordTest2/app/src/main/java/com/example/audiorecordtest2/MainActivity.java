@@ -101,7 +101,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         while (bIsRecording) {
                             // 録音データ読み込み
                             audioRec.read(buf, 0, buf.length);
-                            Log.v("AudioRecord", "read " + buf.length + " bytes");
+                            int sum = 0;
+                            for (byte i : buf) {
+                                sum += i;
+                            }
+                            Log.v("AudioRecord", "read " + buf.length + " bytes .. " + sum);
                         }
                         // 録音停止
                         Log.v("AudioRecord", "stop");
@@ -112,8 +116,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         }
         if (v == mybtn1) {
-            String i = Integer.toHexString(buf[0]);
-            mText.setText(String.valueOf(buf[0]));
+            //String i = Integer.toHexString(buf[0]);
+            //mText.setText(String.valueOf(buf[0]));
         }
     }
 
