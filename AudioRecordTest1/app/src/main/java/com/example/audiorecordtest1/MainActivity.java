@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity
     public void startRecording(){
         if(mRecorder == null && checkRecordable()) {
             mText.setText(getString(R.string.prepare_speech));
-            //mRecorder = SpeechRecognizer.createSpeechRecognizer(this);
+            mRecorder = SpeechRecognizer.createSpeechRecognizer(this);
             //mRecorder.setRecognitionListener(this);
             //Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             //intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
