@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class Recorder02 extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
     final static int SAMPLING_RATE = 11025;
     AudioRecord audioRec = null;
     Button btn = null;
