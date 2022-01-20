@@ -101,10 +101,10 @@ public class MainActivity extends AppCompatActivity
 
     public void startRecording(){
         if(mRecorder == null && checkRecordable()) {
-            /*
             mText.setText(getString(R.string.prepare_speech));
             mRecorder = SpeechRecognizer.createSpeechRecognizer(this);
             mRecorder.setRecognitionListener(this);
+            /*
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                     RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
@@ -115,9 +115,6 @@ public class MainActivity extends AppCompatActivity
             //mRecorder.startListening(intent);
             */
 
-            mRecorder = SpeechRecognizer.createSpeechRecognizer(this);
-            mRecorder.setRecognitionListener(this);
-
             // 英語で音声入力
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             String lang = "en_US";
@@ -126,6 +123,7 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra(RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_PREFERENCE, lang);
             //mRecorder.startListening(intent);
             mButton.setText(getString(R.string.stop_speech));
+
         }
     }
 
