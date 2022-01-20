@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AudioRecordTest2</string>
+    <string name="start_label">AudioRecordTest2</string>
+    <string name="stop_label">AudioRecordTest2</string>
+</resources>
