@@ -18,6 +18,10 @@
 
 - [【Android】マイク使用許可を得て音声をテキストに変換する（音声認識）](https://www.servernote.net/article.cgi?id=android-voice-to-text)
 
+## AudioRecordTest2 [Repository](https://github.com/Nave-wata/android_test_projects/tree/main/AudioRecordTest2)
+
+- [データストリームとして音声データを読み込む](https://seesaawiki.jp/w/moonlight_aska/d/%A5%C7%A1%BC%A5%BF%A5%B9%A5%C8%A5%EA%A1%BC%A5%E0%A4%C8%A4%B7%A4%C6%B2%BB%C0%BC%A5%C7%A1%BC%A5%BF%A4%F2%C6%C9%A4%DF%B9%FE%A4%E0)
+
 ## テストコード
 
 - [AndroidStudioのJunit4備忘録](https://qiita.com/izuki_y/items/d784529c301af2883b85)
