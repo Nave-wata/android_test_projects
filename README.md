@@ -6,7 +6,6 @@
 
 ## notepad [Repository](https://github.com/Nave-wata/android_test_projects/tree/main/notepad)
 
-
 - [Android Studio 4 で初めての基本的なスマホアプリを作る](https://b-risk.jp/blog/2021/02/androidstudio4/#i-2)
 - [[Android] TextView で文字を表示](https://akira-watson.com/android/textview.html)
 - [[Android] アプリの画面を遷移させる](https://akira-watson.com/android/activity-1.html)
