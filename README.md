@@ -21,7 +21,6 @@
 ## テストコード
 
 - [AndroidStudioのJunit4備忘録](https://qiita.com/izuki_y/items/d784529c301af2883b85)
-- [Androidアプリ開発入門（3）-SpeechRecognizer](https://note.com/npaka/n/nd3fa80acee85#04QUn)
 
 ## Licence
 
