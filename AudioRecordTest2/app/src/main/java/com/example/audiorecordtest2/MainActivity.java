@@ -1,5 +1,10 @@
 package com.example.audiorecordtest2;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.speech.SpeechRecognizer;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -11,13 +16,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     final static int SAMPLING_RATE = 11025;
+    private static final int PERMISSION_RECORD_AUDIO = 1;
     AudioRecord audioRec = null;
     Button btn = null;
     boolean bIsRecording = false;
     int bufSize;
+    TextView mText;
+
     /** Called when the activity is first created. */
 
     @Override
@@ -39,6 +48,32 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 AudioFormat.CHANNEL_CONFIGURATION_MONO,
                 AudioFormat.ENCODING_PCM_16BIT,
                 bufSize);
+        mText = (TextView)findViewById(R.id.textView);
+
+        checkRecordable();
+        mText.setText("hoge");
+    }
+
+    public Boolean checkRecordable(){
+        if(!SpeechRecognizer.isRecognitionAvailable(getApplicationContext())) {
+            //mAlert.setMessage(getString(R.string.speech_not_available));
+            //mAlert.show();
+            return false;
+        }
+        if (Build.VERSION.SDK_INT >= 23) {
+            if(ActivityCompat.checkSelfPermission(this,
+                    Manifest.permission.RECORD_AUDIO)
+                    != PackageManager.PERMISSION_GRANTED)
+            {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{
+                                Manifest.permission.RECORD_AUDIO
+                        },
+                        PERMISSION_RECORD_AUDIO);
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
