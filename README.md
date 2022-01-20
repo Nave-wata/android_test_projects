@@ -14,9 +14,14 @@
 - [AndroidでEditTextから数値を取得](https://androidkaihatu.blog.fc2.com/blog-entry-45.html)
 - [[Java] EditTextコントロールのtext取得と設定（編集ボックス内テキスト）](https://www.ipentec.com/document/android-edittext-get-set-text)
 
+## AudioRecordTest1 [Repository](https://github.com/Nave-wata/android_test_projects/tree/main/AudioRecordTest1)
+
+- [【Android】マイク使用許可を得て音声をテキストに変換する（音声認識）](https://www.servernote.net/article.cgi?id=android-voice-to-text)
+
 ## テストコード
 
-[AndroidStudioのJunit4備忘録](https://qiita.com/izuki_y/items/d784529c301af2883b85)
+- [AndroidStudioのJunit4備忘録](https://qiita.com/izuki_y/items/d784529c301af2883b85)
+- [Androidアプリ開発入門（3）-SpeechRecognizer](https://note.com/npaka/n/nd3fa80acee85#04QUn)
 
 ## Licence
 
