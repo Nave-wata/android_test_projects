@@ -102,16 +102,16 @@ public class MainActivity extends AppCompatActivity
     public void startRecording(){
         if(mRecorder == null && checkRecordable()) {
             mText.setText(getString(R.string.prepare_speech));
-            mRecorder = SpeechRecognizer.createSpeechRecognizer(this);
-            mRecorder.setRecognitionListener(this);
-            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                    RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-            intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,
-                    getPackageName());
+            //mRecorder = SpeechRecognizer.createSpeechRecognizer(this);
+            //mRecorder.setRecognitionListener(this);
+            //Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            //intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+            //        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            //intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,
+            //        getPackageName());
             //以下指定で途中の認識を拾う
-            intent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
-            mRecorder.startListening(intent);
+            //intent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
+            //mRecorder.startListening(intent);
             mButton.setText(getString(R.string.stop_speech));
         }
     }
@@ -160,10 +160,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onError(int error) {
         Log.d("MainActivity","onError.error="+error);
-        mAlert.setMessage(getString(R.string.speech_error) + "\nエラーコード：" + error);
-        mAlert.show();
-        //mText.setText(getString(R.string.speech_error) + "\nエラーコード：" + error);
-        mText.setText(getString(R.string.speech_error));
+        //mAlert.setMessage(getString(R.string.speech_error) + "\nエラーコード：" + error);
+        //mAlert.show();
+        mText.setText(getString(R.string.speech_error) + "\nエラーコード：" + error);
+        //mText.setText(getString(R.string.speech_error));
         stopRecording();
     }
 
