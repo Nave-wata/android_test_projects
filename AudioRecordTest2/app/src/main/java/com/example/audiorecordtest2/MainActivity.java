@@ -97,10 +97,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         while (bIsRecording) {
                             // 録音データ読み込み
                             audioRec.read(buf, 0, buf.length);
+                            int ary = audioRec.read(buf, 0, buf.length);
+
                             Log.v("AudioRecord", "read " + buf.length + " bytes");
                         }
                         // 録音停止
                         Log.v("AudioRecord", "stop");
+                        mText.setText("a");
                         audioRec.stop();
                     }
                 }).start();
