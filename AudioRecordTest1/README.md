@@ -1,5 +1,7 @@
 # AudioRecordTest1
 
+現在エラーコード2で詰んでる
+
 ## 参考サイト
 
 - [【Android】マイク使用許可を得て音声をテキストに変換する（音声認識）](https://www.servernote.net/article.cgi?id=android-voice-to-text)
