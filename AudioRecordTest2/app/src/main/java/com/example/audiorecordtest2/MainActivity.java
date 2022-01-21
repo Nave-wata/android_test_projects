@@ -110,13 +110,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     @Override
                     public void run() {
                         byte inputBuffer[] = new byte[bufSize];
+                        byte outputBuffer[] = new byte[bufSize];
                         // TODO Auto-generated method stub
                         while (bIsRecording) {
                             // 録音データ読み込み
                             audioRec.read(inputBuffer, 0, bufSize);
-
-                            player.write(inputBuffer, 0, bufSize);
-                            Log.v("AudioRecord", "read " + bufSize + " bytes");
+                            outputBuffer = Amplification(inputBuffer);
+                            player.write(outputBuffer, 0, bufSize);
+                            // Log.v("AudioRecord", "read " + bufSize + " bytes");
                         }
                         // 録音停止
                         Log.v("AudioRecord", "stop");
@@ -137,7 +138,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     protected byte[] Amplification(byte[] inputBuffer) {
         double buf[] = new double[bufSize];
-        byte outputBuffer[] = new byte[bufSize];
+        byte[] outputBuffer = new byte[bufSize];
+        int i;
+
+        for (i = 0; i < bufSize; i++) {
+            buf[i] = (double)inputBuffer[i];
+        }
+        for (i = 0; i < bufSize; i++) {
+            outputBuffer[i] = (byte)buf[i];
+        }
 
         return outputBuffer;
     }
