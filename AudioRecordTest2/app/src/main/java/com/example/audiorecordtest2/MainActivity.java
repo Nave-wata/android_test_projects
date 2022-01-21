@@ -41,14 +41,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btn = (Button)findViewById(R.id.button_id);
         btn.setOnClickListener(this);
         // バッファサイズの計算
-        bufSize = AudioRecord.getMinBufferSize(
-                SAMPLING_RATE,
-                AudioFormat.CHANNEL_CONFIGURATION_MONO,
-                AudioFormat.ENCODING_PCM_16BIT) * 2;
+        //bufSize = AudioRecord.getMinBufferSize(
+        //        SAMPLING_RATE,
+        //        AudioFormat.CHANNEL_CONFIGURATION_MONO,
+        //        AudioFormat.ENCODING_PCM_16BIT);
 
         // AudioRecordの作成
         audioRec = new AudioRecord(
-                MediaRecorder.AudioSource.MIC, SAMPLING_RATE,
+                MediaRecorder.AudioSource.MIC,
+                SAMPLING_RATE,
                 AudioFormat.CHANNEL_CONFIGURATION_MONO,
                 AudioFormat.ENCODING_PCM_16BIT,
                 bufSize);
@@ -58,7 +59,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 AudioManager.STREAM_MUSIC,
                 SAMPLING_RATE,
                 AudioFormat.CHANNEL_CONFIGURATION_MONO,
-                AudioFormat.ENCODING_DEFAULT,
+                AudioFormat.ENCODING_PCM_16BIT,
                 bufSize,
                 AudioTrack.MODE_STREAM
                 );
