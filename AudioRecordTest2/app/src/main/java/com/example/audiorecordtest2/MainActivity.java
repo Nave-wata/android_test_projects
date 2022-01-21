@@ -2,6 +2,8 @@ package com.example.audiorecordtest2;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.media.AudioManager;
+import android.media.AudioTrack;
 import android.os.Build;
 import android.speech.SpeechRecognizer;
 import android.support.v4.app.ActivityCompat;
@@ -22,6 +24,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     final static int SAMPLING_RATE = 11025;
     private static final int PERMISSION_RECORD_AUDIO = 1;
     AudioRecord audioRec = null;
+    AudioTrack audiotrk = null;
     Button btn = null;
     boolean bIsRecording = false;
     int bufSize;
@@ -49,6 +52,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 AudioFormat.CHANNEL_CONFIGURATION_MONO,
                 AudioFormat.ENCODING_PCM_16BIT,
                 bufSize);
+
+        // AudioTrackの作成
+        audiotrk = new AudioTrack(
+                AudioManager.STREAM_MUSIC,
+                SAMPLING_RATE,
+                AudioFormat.CHANNEL_CONFIGURATION_MONO,
+                AudioFormat.ENCODING_DEFAULT,
+                44100,
+                AudioTrack.MODE_STREAM
+                );
+
         mText = (TextView)findViewById(R.id.textView);
 
         checkRecordable();
