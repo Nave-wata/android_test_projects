@@ -1,20 +1,17 @@
 package com.example.audiorecordtest2;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.pm.PackageManager;
+import android.media.AudioFormat;
 import android.media.AudioManager;
+import android.media.AudioRecord;
 import android.media.AudioTrack;
+import android.media.MediaRecorder;
 import android.os.Build;
+import android.os.Bundle;
 import android.speech.SpeechRecognizer;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import android.app.Activity;
-import android.media.AudioFormat;
-import android.media.AudioRecord;
-import android.media.MediaRecorder;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +26,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button btn = null;
     boolean bIsRecording = false;
     int bufSize = 1024;
-    double vol_ary[] = {0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0};
+    double vol_ary[] = {0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8};
+    String vol_str[] = {"-4", "-3", "-2", "-1", "0", "1", "2", "3", "4"};
     double vol = vol_ary[0];
     TextView mText;
 
@@ -45,12 +43,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         mText = (TextView)findViewById(R.id.textView);
         mText.setText("Buffer Size = " + bufSize);
-
-        // バッファサイズの計算
-        //bufSize = AudioRecord.getMinBufferSize(
-        //        SAMPLING_RATE,
-        //        AudioFormat.CHANNEL_CONFIGURATION_MONO,
-        //        AudioFormat.ENCODING_PCM_16BIT);
 
         // AudioRecordの作成
         audioRec = new AudioRecord(
@@ -72,14 +64,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         // SeekBarのインスタンスを取得
         SeekBar seekBar = findViewById(R.id.seekBar);
-        seekBar.setMax(9);
+        seekBar.setMax(8);
         seekBar.setProgress(0);
         // SeekBarのつまみの変更を検知する
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 // つまみが変更された時に処理が実行される
-                vol = vol_ary[progress + 1];
+                mText.setText(vol_str[progress]);
+                vol = vol_ary[progress];
                 Log.v("SeekBar", "progress" + vol);
             }
 
@@ -121,7 +114,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
         if (v == btn) {
             if (bIsRecording) {
                 btn.setText(R.string.start_label);
@@ -138,7 +130,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     public void run() {
                         byte inputBuffer[] = new byte[bufSize];
                         byte outputBuffer[] = new byte[bufSize];
-                        // TODO Auto-generated method stub
                         while (bIsRecording) {
                             // 録音データ読み込み
                             audioRec.read(inputBuffer, 0, bufSize);
@@ -158,7 +149,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onDestroy() {
-        // TODO Auto-generated method stub
         super.onDestroy();
         audioRec.release();
     }
