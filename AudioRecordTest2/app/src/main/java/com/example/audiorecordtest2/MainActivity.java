@@ -27,10 +27,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button btn = null;
     boolean bIsRecording = false;
     int bufSize = 1024;
-    int seekBarMax = 8;
-    int seekBarProgress = 0;
-    double[] vol_ary = {0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8};
-    String[] vol_str = {"-4", "-3", "-2", "-1", "0", "1", "2", "3", "4"};
+    int seekBarMax = 18;
+    int seekBarProgress = 9;
+    double[] vol_ary = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0,
+                        1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9};
+    String[] vol_str = {"-9", "-8", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0",
+                         "1",  "2",  "3",  "4",  "5",  "6",  "7",  "8",  "9", };
     double vol = vol_ary[0];
     TextView mText;
 
@@ -46,7 +48,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btn.setOnClickListener(this);
 
         mText = findViewById(R.id.textView);
-        mText.setText("Buffer Size = " + bufSize);
+        mText.setText(vol_str[seekBarProgress]);
 
         // AudioRecordの作成
         audioRec = new AudioRecord(
