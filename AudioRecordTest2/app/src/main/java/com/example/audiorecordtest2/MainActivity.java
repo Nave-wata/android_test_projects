@@ -21,13 +21,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    final static int SAMPLING_RATE = 11025;
+    final static int SAMPLING_RATE = 44100;
     private static final int PERMISSION_RECORD_AUDIO = 1;
     AudioRecord audioRec = null;
     AudioTrack player = null;
     Button btn = null;
     boolean bIsRecording = false;
-    int bufSize;
+    int bufSize = 1024;
     byte buf[] = new byte[bufSize];
     TextView mText;
 
@@ -59,7 +59,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 SAMPLING_RATE,
                 AudioFormat.CHANNEL_CONFIGURATION_MONO,
                 AudioFormat.ENCODING_DEFAULT,
-                44100,
+                bufSize,
                 AudioTrack.MODE_STREAM
                 );
 
