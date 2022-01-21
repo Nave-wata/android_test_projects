@@ -135,8 +135,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         audioRec.release();
     }
 
-    //protected byte[] Amplification(byte[] buf) {
-    //    double outputBuffer[] = new double[bufSize];
-    //    return ;
-    //}
+    protected byte[] Amplification(byte[] inputBuffer) {
+        double buf[] = new double[bufSize];
+        byte outputBuffer[] = new byte[bufSize];
+
+        return outputBuffer;
+    }
 }
