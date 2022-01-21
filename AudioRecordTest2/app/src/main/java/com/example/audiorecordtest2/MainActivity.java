@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -66,6 +67,26 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 bufSize,
                 AudioTrack.MODE_STREAM
                 );
+
+        // SeekBarのインスタンスを取得
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        // SeekBarのつまみの変更を検知する
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                // つまみが変更された時に処理が実行される
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // ユーザーがタップ開始した時に処理が実行される
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // ユーザーがタップ終了した時に処理が実行される
+            }
+        });
 
         checkRecordable();
     }
