@@ -71,12 +71,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         // SeekBarのインスタンスを取得
         SeekBar seekBar = findViewById(R.id.seekBar);
+        seekBar.setMax(9);
+        seekBar.setProgress(0);
         // SeekBarのつまみの変更を検知する
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 // つまみが変更された時に処理が実行される
-                vol = progress;
+                vol = progress + 1;
                 Log.v("SeekBar", "progress" + vol);
             }
 
