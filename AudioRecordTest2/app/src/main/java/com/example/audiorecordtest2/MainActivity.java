@@ -41,7 +41,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btn.setOnClickListener(this);
 
         mText = (TextView)findViewById(R.id.textView);
-        mText.setText("Hello");
+        mText.setText("Buffer Size = " + bufSize);
 
         // バッファサイズの計算
         //bufSize = AudioRecord.getMinBufferSize(
@@ -142,7 +142,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         int i;
 
         for (i = 0; i < bufSize; i++) {
-            buf[i] = (double)inputBuffer[i] * 10.0;
+            buf[i] = (double)inputBuffer[i] * 3.0;
         }
         for (i = 0; i < bufSize; i++) {
             outputBuffer[i] = (byte)buf[i];
