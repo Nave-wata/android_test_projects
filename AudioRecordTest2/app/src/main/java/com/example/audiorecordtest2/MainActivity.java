@@ -29,6 +29,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button btn = null;
     boolean bIsRecording = false;
     int bufSize = 1024;
+    int vol = 1;
     TextView mText;
 
     /** Called when the activity is first created. */
@@ -75,6 +76,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 // つまみが変更された時に処理が実行される
+                vol = progress;
+                Log.v("SeekBar", "progress" + vol);
             }
 
             @Override
@@ -163,7 +166,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         int i;
 
         for (i = 0; i < bufSize; i++) {
-            buf[i] = (double)inputBuffer[i] * 3.0;
+            buf[i] = (double)inputBuffer[i] * vol;
         }
         for (i = 0; i < bufSize; i++) {
             outputBuffer[i] = (byte)buf[i];
