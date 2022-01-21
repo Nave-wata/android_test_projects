@@ -40,6 +40,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         btn = (Button)findViewById(R.id.button_id);
         btn.setOnClickListener(this);
+
+        mText = (TextView)findViewById(R.id.textView);
+        mText.setText("Hello");
+
         // バッファサイズの計算
         //bufSize = AudioRecord.getMinBufferSize(
         //        SAMPLING_RATE,
@@ -64,10 +68,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 AudioTrack.MODE_STREAM
                 );
 
-        mText = (TextView)findViewById(R.id.textView);
-
         checkRecordable();
-        mText.setText("Hello");
     }
 
     public Boolean checkRecordable(){
