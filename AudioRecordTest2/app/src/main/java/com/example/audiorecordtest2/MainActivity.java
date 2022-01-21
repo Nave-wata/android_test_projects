@@ -23,7 +23,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private static final int PERMISSION_RECORD_AUDIO = 1;
     AudioRecord audioRec = null;
     Button btn = null;
-    Button mybtn1 = null;
     boolean bIsRecording = false;
     int bufSize;
     byte buf[] = new byte[bufSize];
@@ -37,9 +36,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         btn = (Button)findViewById(R.id.button_id);
-        mybtn1 = (Button)findViewById(R.id.button1);
         btn.setOnClickListener(this);
-        mybtn1.setOnClickListener(this);
         // バッファサイズの計算
         bufSize = AudioRecord.getMinBufferSize(
                 SAMPLING_RATE,
@@ -114,10 +111,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 }).start();
                 btn.setText(R.string.stop_label);
             }
-        }
-        if (v == mybtn1) {
-            //String i = Integer.toHexString(buf[0]);
-            //mText.setText(String.valueOf(buf[0]));
         }
     }
 
