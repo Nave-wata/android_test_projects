@@ -24,7 +24,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     final static int SAMPLING_RATE = 11025;
     private static final int PERMISSION_RECORD_AUDIO = 1;
     AudioRecord audioRec = null;
-    AudioTrack audiotrk = null;
+    AudioTrack player = null;
     Button btn = null;
     boolean bIsRecording = false;
     int bufSize;
@@ -54,7 +54,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 bufSize);
 
         // AudioTrackの作成
-        audiotrk = new AudioTrack(
+        player = new AudioTrack(
                 AudioManager.STREAM_MUSIC,
                 SAMPLING_RATE,
                 AudioFormat.CHANNEL_CONFIGURATION_MONO,
@@ -101,6 +101,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             } else {
                 // 録音開始
                 Log.v("AudioRecord", "startRecording");
+                player.play();
                 audioRec.startRecording();
                 bIsRecording = true;
                 // 録音スレッド
@@ -112,6 +113,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         while (bIsRecording) {
                             // 録音データ読み込み
                             audioRec.read(buf, 0, buf.length);
+                            player.write(buf, 0, buf.length);
                             int sum = 0;
                             for (byte i : buf) {
                                 sum += i;
