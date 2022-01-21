@@ -27,6 +27,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button btn = null;
     boolean bIsRecording = false;
     int bufSize = 1024;
+    int seekBarMax = 8;
+    int seekBarProgress = 0;
     double[] vol_ary = {0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8};
     String[] vol_str = {"-4", "-3", "-2", "-1", "0", "1", "2", "3", "4"};
     double vol = vol_ary[0];
@@ -66,8 +68,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         // SeekBarのインスタンスを取得
         SeekBar seekBar = findViewById(R.id.seekBar);
-        seekBar.setMax(8);
-        seekBar.setProgress(0);
+        seekBar.setMax(seekBarMax);
+        seekBar.setProgress(seekBarProgress);
         // SeekBarのつまみの変更を検知する
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
