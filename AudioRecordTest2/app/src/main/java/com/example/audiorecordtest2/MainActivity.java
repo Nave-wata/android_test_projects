@@ -1,6 +1,7 @@
 package com.example.audiorecordtest2;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.media.AudioFormat;
@@ -26,22 +27,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button btn = null;
     boolean bIsRecording = false;
     int bufSize = 1024;
-    double vol_ary[] = {0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8};
-    String vol_str[] = {"-4", "-3", "-2", "-1", "0", "1", "2", "3", "4"};
+    double[] vol_ary = {0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8};
+    String[] vol_str = {"-4", "-3", "-2", "-1", "0", "1", "2", "3", "4"};
     double vol = vol_ary[0];
     TextView mText;
 
     /** Called when the activity is first created. */
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn = (Button)findViewById(R.id.button_id);
+        btn = findViewById(R.id.button_id);
         btn.setOnClickListener(this);
 
-        mText = (TextView)findViewById(R.id.textView);
+        mText = findViewById(R.id.textView);
         mText.setText("Buffer Size = " + bufSize);
 
         // AudioRecordの作成
@@ -90,11 +92,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         checkRecordable();
     }
 
-    public Boolean checkRecordable(){
+    @SuppressLint("ObsoleteSdkInt")
+    public void checkRecordable(){
         if(!SpeechRecognizer.isRecognitionAvailable(getApplicationContext())) {
-            //mAlert.setMessage(getString(R.string.speech_not_available));
-            //mAlert.show();
-            return false;
+            return;
         }
         if (Build.VERSION.SDK_INT >= 23) {
             if(ActivityCompat.checkSelfPermission(this,
@@ -106,10 +107,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                                 Manifest.permission.RECORD_AUDIO
                         },
                         PERMISSION_RECORD_AUDIO);
-                return false;
             }
         }
-        return true;
     }
 
     @Override
@@ -125,22 +124,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 audioRec.startRecording();
                 bIsRecording = true;
                 // 録音スレッド
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        byte inputBuffer[] = new byte[bufSize];
-                        byte outputBuffer[] = new byte[bufSize];
-                        while (bIsRecording) {
-                            // 録音データ読み込み
-                            audioRec.read(inputBuffer, 0, bufSize);
-                            outputBuffer = Amplification(inputBuffer);
-                            player.write(outputBuffer, 0, bufSize);
-                            // Log.v("AudioRecord", "read " + bufSize + " bytes");
-                        }
-                        // 録音停止
-                        Log.v("AudioRecord", "stop");
-                        audioRec.stop();
+                new Thread(() -> {
+                    byte[] inputBuffer = new byte[bufSize];
+                    byte[] outputBuffer;
+                    while (bIsRecording) {
+                        // 録音データ読み込み
+                        audioRec.read(inputBuffer, 0, bufSize);
+                        outputBuffer = Amplification(inputBuffer);
+                        player.write(outputBuffer, 0, bufSize);
+                        // Log.v("AudioRecord", "read " + bufSize + " bytes");
                     }
+                    // 録音停止
+                    Log.v("AudioRecord", "stop");
+                    audioRec.stop();
                 }).start();
                 btn.setText(R.string.stop_label);
             }
@@ -154,7 +150,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     protected byte[] Amplification(byte[] inputBuffer) {
-        double buf[] = new double[bufSize];
+        double[] buf = new double[bufSize];
         byte[] outputBuffer = new byte[bufSize];
         int i;
 
