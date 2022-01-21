@@ -28,7 +28,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button btn = null;
     boolean bIsRecording = false;
     int bufSize = 1024;
-    byte buf[] = new byte[bufSize];
     TextView mText;
 
     /** Called when the activity is first created. */
@@ -110,13 +109,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        byte buf[] = new byte[bufSize];
+                        byte inputBuffer[] = new byte[bufSize];
                         // TODO Auto-generated method stub
                         while (bIsRecording) {
                             // 録音データ読み込み
-                            audioRec.read(buf, 0, buf.length);
-                            player.write(buf, 0, buf.length);
-                            Log.v("AudioRecord", "read " + buf.length + " bytes");
+                            audioRec.read(inputBuffer, 0, bufSize);
+
+                            player.write(inputBuffer, 0, bufSize);
+                            Log.v("AudioRecord", "read " + bufSize + " bytes");
                         }
                         // 録音停止
                         Log.v("AudioRecord", "stop");
@@ -134,4 +134,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onDestroy();
         audioRec.release();
     }
+
+    //protected byte[] Amplification(byte[] buf) {
+    //    double outputBuffer[] = new double[bufSize];
+    //    return ;
+    //}
 }
