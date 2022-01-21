@@ -142,7 +142,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         int i;
 
         for (i = 0; i < bufSize; i++) {
-            buf[i] = (double)inputBuffer[i];
+            buf[i] = (double)inputBuffer[i] * 10.0;
         }
         for (i = 0; i < bufSize; i++) {
             outputBuffer[i] = (byte)buf[i];
