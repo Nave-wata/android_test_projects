@@ -5,7 +5,7 @@ public class FFT_Test2_vscode {
     static int FFT_SIZE = 8;
     static double[] data = new double[FFT_SIZE];
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoClassDefFoundError {
         for (int i = 0; i < FFT_SIZE; i++) {
             data[i] = 10.0 + i;
             System.out.println("data[" + i + "] = " + data[i]);
@@ -14,6 +14,11 @@ public class FFT_Test2_vscode {
 
         fft = new DoubleFFT_1D(FFT_SIZE);
 
-        fft.realForward(data);
+        try {
+            fft.realForward(data);
+        } catch (NoClassDefFoundError e) {
+            System.out.println("fft.realForward(data)");
+        }
+
     }
 }
