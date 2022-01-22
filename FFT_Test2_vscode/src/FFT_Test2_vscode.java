@@ -5,7 +5,7 @@ public class FFT_Test2_vscode {
     static int FFT_SIZE = 8;
     static double[] data = new double[FFT_SIZE];
 
-    public static void main(String[] args) throws NoClassDefFoundError {
+    public static void main(String[] args) throws java.lang.NoClassDefFoundError {
         for (int i = 0; i < FFT_SIZE; i++) {
             data[i] = 10.0 + i;
             System.out.println("data[" + i + "] = " + data[i]);
