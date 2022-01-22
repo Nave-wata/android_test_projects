@@ -26,7 +26,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     AudioTrack player = null;
     Button btn = null;
     boolean bIsRecording = false;
-    int bufSize = 1024;
+    int bufSize = 2048;
     int seekBarMax = 20;
     int seekBarProgress = 9;
     double[] vol_ary = {0.5, 0.526, 0.555, 0.588, 0.625, 0.666, 0.714, 0.769, 0.833, 0.909,
@@ -56,7 +56,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         audioRec = new AudioRecord(
                 MediaRecorder.AudioSource.MIC,
                 SAMPLING_RATE,
-                AudioFormat.CHANNEL_CONFIGURATION_MONO,
+                AudioFormat.CHANNEL_IN_STEREO,
                 AudioFormat.ENCODING_PCM_16BIT,
                 bufSize);
 
@@ -64,7 +64,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         player = new AudioTrack(
                 AudioManager.STREAM_MUSIC,
                 SAMPLING_RATE,
-                AudioFormat.CHANNEL_CONFIGURATION_MONO,
+                AudioFormat.CHANNEL_IN_STEREO,
                 AudioFormat.ENCODING_PCM_16BIT,
                 bufSize,
                 AudioTrack.MODE_STREAM
