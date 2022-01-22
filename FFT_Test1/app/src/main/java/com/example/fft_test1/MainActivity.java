@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
 
         int FFT_SIZE = 8 ;
         double[] data ;
-        data = new double[FFT_SIZE * 2];
+        data = new double[FFT_SIZE];
 
         // オリジナルデータを出力
         for ( int i=0; i<FFT_SIZE; i++ ) {
@@ -40,5 +40,4 @@ public class MainActivity extends Activity {
             Log.d("IFFT", "i=" + i + " val=" + data[i] ) ;
         }
     }
-
 }
