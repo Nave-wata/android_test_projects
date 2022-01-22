@@ -2,13 +2,8 @@ package com.example.fft_test1;
 
 import android.app.Activity;
 import android.os.Bundle;
-import java.math.*;
-import android.content.Context;
-import android.graphics.Canvas;
 import android.util.Log;
-import android.view.View;
-import java.io.IOException;
-import android.content.Context;
+
 import org.jtransforms.fft.DoubleFFT_1D;
 
 public class MainActivity extends Activity {
