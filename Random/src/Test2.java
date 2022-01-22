@@ -1,40 +1,30 @@
 public class Test2 {
     static int SAMPLING_RATE = 44100;
     static int bufSize = 1024; // フーリエ変換のサイズと同じ
-    static int[] Base_Hz = { 43, 86, 129, 172, 258, 516, 1033, 2024, 4005, 8010, 16020 };
-    static int[] Base_Hz_cnt = { 1, 2, 3, 4, 6, 12, 24, 47, 93, 186, 372 };
+    static int[] Base_Hz = { 43, 86, 129, 258, 516, 1033, 2024, 4005, 8010, 16020 };
+    static int[] Base_Hz_cnt = { 1, 2, 3, 7, 13, 25, 48, 94, 187, 373 }; // 全部で 512 個
+    static int[] Base_Hz_cnt_sub;
+    static double[] VolUp = new double[bufSize / 2];
 
     public static void main(String[] args) {
-        int i;
+        int i, j;
         int Hz;
 
         for (i = 0; i < bufSize / 2; i++) {
             Hz = i * SAMPLING_RATE / bufSize;
+        }
 
-            if (Hz == Base_Hz[0]) {
-                System.out.println(Base_Hz[0] + " = " + i);
-            } else if (Hz == Base_Hz[1]) {
-                System.out.println(Base_Hz[1] + " = " + i);
-            } else if (Hz == Base_Hz[2]) {
-                System.out.println(Base_Hz[2] + " = " + i);
-            } else if (Hz == Base_Hz[3]) {
-                System.out.println(Base_Hz[3] + " = " + i);
-            } else if (Hz == Base_Hz[4]) {
-                System.out.println(Base_Hz[4] + " = " + i);
-            } else if (Hz == Base_Hz[5]) {
-                System.out.println(Base_Hz[5] + " = " + i);
-            } else if (Hz == Base_Hz[6]) {
-                System.out.println(Base_Hz[6] + " = " + i);
-            } else if (Hz == Base_Hz[7]) {
-                System.out.println(Base_Hz[7] + " = " + i);
-            } else if (Hz == Base_Hz[8]) {
-                System.out.println(Base_Hz[8] + " = " + i);
-            } else if (Hz == Base_Hz[9]) {
-                System.out.println(Base_Hz[9] + " = " + i);
-            } else if (Hz == Base_Hz[10]) {
-                System.out.println(Base_Hz[10] + " = " + i);
+        for (i = 0; i < 10; i++) {
+            if (i != 9) {
+                for (j = Base_Hz_cnt[i]; j < Base_Hz_cnt[i + 1]; j++) {
+
+                }
+                System.out.println(Base_Hz_cnt[i] + " ~ " + Base_Hz_cnt[i + 1]);
             } else {
+                for (j = Base_Hz_cnt[i]; j < 512; j++) {
 
+                }
+                System.out.println(Base_Hz_cnt[i] + " ~ " + 512);
             }
         }
     }
