@@ -1,3 +1,9 @@
+# FFT_Test2_vscode [Repository](https://github.com/Nave-wata/android_test_projects/tree/main/FFT_Test2_vscode)
+
+## jarファイル追加
+
+`jarファイル`を追加するときは，`JAVA PROJECTS`の`Referenced Libraries`からファイルを探してやる．libフォルダに移動させとくのかな？今回はjarファイル移動させといた．
+
 ## Getting Started
 
 Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
