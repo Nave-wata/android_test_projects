@@ -32,6 +32,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     int bufSize = 1024;
     int seekBarMax = 20;
     int seekBarProgress = 9;
+    DoubleFFT_1D fft = new DoubleFFT_1D(bufSize);
 
     double[] vol_ary = {0.5, 0.526, 0.555, 0.588, 0.625, 0.666, 0.714, 0.769, 0.833, 0.909,
                         1.0,
@@ -165,8 +166,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
         int i;
 
         for (i = 0; i < bufSize; i++) {
-            buf[i] = (double)inputBuffer[i] * vol;
+            buf[i] = (double)inputBuffer[i];
         }
+
+        // フーリエ変換
+        fft.realForward(buf);
+
+        for (i = 0; i < bufSize; i++) {
+            buf[i] = buf[i] * vol;
+        }
+
+        // 逆フーリエ変換
+        fft.realInverse(buf, true);
+
         for (i = 0; i < bufSize; i++) {
             outputBuffer[i] = (byte)buf[i];
         }
