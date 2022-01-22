@@ -10,7 +10,7 @@ jarファイルは`JTransforms` と `JLargeArrays` の2ついるっぽい
 
 - [JLargeArrays](https://github.com/carandraug/debian-libjlargearrays-java)
 - [AndroidでFFT(高速フーリエ変換)](http://web-dou.com/android/fft.html)
-
+- [音を利用する2～Androidデバイスでの音波通信：準備編](https://github.com/mkttanabe/Sonic/blob/master/sonic04/app/src/main/java/jp/klab/sonic04/MainActivity.java)
 
 ## Getting Started
 

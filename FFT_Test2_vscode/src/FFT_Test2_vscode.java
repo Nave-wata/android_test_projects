@@ -32,9 +32,11 @@ public class FFT_Test2_vscode {
         }
         System.out.println();
 
+        // 23行目で2かけたら逆フーリエ変換しても2かけられてた．
         fft.realInverse(data2, true);
         for (int i = 0; i < FFT_SIZE; i++) {
             System.out.println("M : i = " + i + ", val = " + data2[i]);
         }
+        System.out.println();
     }
 }
