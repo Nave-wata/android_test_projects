@@ -30,6 +30,6 @@
 
 - [AndroidStudioのJunit4備忘録](https://qiita.com/izuki_y/items/d784529c301af2883b85)
 
-## Licence
+## License
 
 [MIT](https://github.com/Nave-wata/android_test_projects/blob/main/LICENSE)
