@@ -3,6 +3,7 @@ import org.jtransforms.fft.DoubleFFT_1D;
 public class FFT_Test2_vscode {
     static int FFT_SIZE = 8;
     static double[] data = new double[FFT_SIZE];
+    static double[] data2 = new double[FFT_SIZE];
 
     public static void main(String[] args) throws java.lang.NoClassDefFoundError {
         for (int i = 0; i < FFT_SIZE; i++) {
@@ -19,6 +20,7 @@ public class FFT_Test2_vscode {
         for (int i = 0; i < FFT_SIZE; i++) {
             // フーリエ変換後のデータを出力
             System.out.println("FFT:  i = " + i + ", val = " + data[i]);
+            data2[i] = data[i] * 2.0;
         }
         System.out.println();
 
@@ -29,5 +31,10 @@ public class FFT_Test2_vscode {
             System.out.println("IFFT: i = " + i + ", val = " + data[i]);
         }
         System.out.println();
+
+        fft.realInverse(data2, true);
+        for (int i = 0; i < FFT_SIZE; i++) {
+            System.out.println("M : i = " + i + ", val = " + data2[i]);
+        }
     }
 }
