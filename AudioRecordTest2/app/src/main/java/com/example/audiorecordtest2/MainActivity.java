@@ -21,15 +21,18 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    final static int SAMPLING_RATE = 44100;
-    private static final int PERMISSION_RECORD_AUDIO = 1;
     AudioRecord audioRec = null;
     AudioTrack player = null;
     Button btn = null;
+    TextView mText;
+
+    private static final int PERMISSION_RECORD_AUDIO = 1;
+    final static int SAMPLING_RATE = 44100;
     boolean bIsRecording = false;
     int bufSize = 1024;
     int seekBarMax = 20;
     int seekBarProgress = 9;
+
     double[] vol_ary = {0.5, 0.526, 0.555, 0.588, 0.625, 0.666, 0.714, 0.769, 0.833, 0.909,
                         1.0,
                         1.1, 1.2,   1.3,   1.4,   1.5,   1.6,   1.7,   1.8,   1.9,   2.0};
@@ -37,7 +40,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                           "0",
                           "1",  "2",  "3",  "4",  "5",  "6",  "7",  "8",  "9", "10"};
     double vol = vol_ary[0];
-    TextView mText;
 
     /** Called when the activity is first created. */
 
