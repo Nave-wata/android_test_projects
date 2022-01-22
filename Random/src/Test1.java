@@ -1,4 +1,4 @@
-class Test1 {
+public class Test1 {
     static int SAMPLING_RATE = 44100;
     static int bufSize = 1024; // フーリエ変換のサイズと同じ
 
