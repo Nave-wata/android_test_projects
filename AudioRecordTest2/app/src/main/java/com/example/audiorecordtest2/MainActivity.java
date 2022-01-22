@@ -56,7 +56,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         audioRec = new AudioRecord(
                 MediaRecorder.AudioSource.MIC,
                 SAMPLING_RATE,
-                AudioFormat.CHANNEL_IN_MONO,
+                AudioFormat.CHANNEL_CONFIGURATION_MONO,
                 AudioFormat.ENCODING_PCM_16BIT,
                 bufSize);
 
@@ -64,7 +64,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         player = new AudioTrack(
                 AudioManager.STREAM_MUSIC,
                 SAMPLING_RATE,
-                AudioFormat.CHANNEL_IN_MONO,
+                AudioFormat.CHANNEL_CONFIGURATION_MONO,
                 AudioFormat.ENCODING_PCM_16BIT,
                 bufSize,
                 AudioTrack.MODE_STREAM
