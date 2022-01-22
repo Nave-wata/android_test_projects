@@ -1,8 +1,8 @@
 # FFT_Test2_vscode [Repository](https://github.com/Nave-wata/android_test_projects/tree/main/FFT_Test2_vscode)
 
-## jarファイル追加
+## jar ファイル追加
 
-`jarファイル`を追加するときは，`JAVA PROJECTS`の`Referenced Libraries`からファイルを探してやる．libフォルダに移動させとくのかな？今回はjarファイル移動させといた．
+`jarファイル`を追加するときは，`JAVA PROJECTS`の`Referenced Libraries`からファイルを探してやる．`libフォルダ`に移動させとくのかな？今回は`jarファイル`移動させといた．
 
 ## Getting Started
 
@@ -12,8 +12,8 @@ Welcome to the VS Code Java world. Here is a guideline to help you get started t
 
 The workspace contains two folders by default, where:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+-   `src`: the folder to maintain sources
+-   `lib`: the folder to maintain dependencies
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
