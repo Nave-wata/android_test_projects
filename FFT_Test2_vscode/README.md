@@ -4,9 +4,13 @@
 
 `jarファイル`を追加するときは，`JAVA PROJECTS`の`Referenced Libraries`からファイルを探してやる．`libフォルダ`に移動させとくのかな？今回は`jarファイル`移動させといた．
 
+jarファイルは`JTransforms` と `JLargeArrays` の2ついるっぽい
+
 ## 参考サイト
 
 - [JLargeArrays](https://github.com/carandraug/debian-libjlargearrays-java)
+- [AndroidでFFT(高速フーリエ変換)](http://web-dou.com/android/fft.html)
+
 
 ## Getting Started
 
