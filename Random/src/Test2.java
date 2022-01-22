@@ -8,23 +8,28 @@ public class Test2 {
 
     public static void main(String[] args) {
         int i, j;
-        int Hz;
+        int Hz, sub;
 
         for (i = 0; i < bufSize / 2; i++) {
             Hz = i * SAMPLING_RATE / bufSize;
         }
 
         for (i = 0; i < 10; i++) {
+            sub = (Base_Hz_cnt_sub[i + 1] - 1) - Base_Hz_cnt[i];
+            System.out.println(sub);
             if (i != 9) {
                 for (j = Base_Hz_cnt[i]; j < Base_Hz_cnt[i + 1]; j++) {
 
                 }
-                System.out.println(Base_Hz_cnt[i] + " ~ " + Base_Hz_cnt[i + 1]);
+                for (j = Base_Hz_cnt[i + 1]; j < Base_Hz_cnt[i]; j++) {
+
+                }
+                // System.out.println(Base_Hz_cnt[i] + " ~ " + Base_Hz_cnt[i + 1]);
             } else {
                 for (j = Base_Hz_cnt[i]; j < 512; j++) {
 
                 }
-                System.out.println(Base_Hz_cnt[i] + " ~ " + 512);
+                // System.out.println(Base_Hz_cnt[i] + " ~ " + 512);
             }
         }
     }
