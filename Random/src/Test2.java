@@ -4,11 +4,12 @@ public class Test2 {
     static int[] Base_Hz = { 43, 86, 129, 258, 516, 1033, 2024, 4005, 8010, 16020 };
     static int[] Base_Hz_cnt = { 1, 2, 3, 7, 13, 25, 48, 94, 187, 373 }; // 全部で 512 個
     static int[] Base_Hz_cnt_sub = new int[bufSize];
-    static double[] VolUp = new double[bufSize / 2];
+    static double[] volUp = new double[bufSize / 2];
 
     public static void main(String[] args) {
-        int i, j;
+        int i, j, k = 0;
         int Hz, sub;
+        double ratio, tmp;
 
         for (i = 0; i < bufSize / 2; i++) {
             Hz = i * SAMPLING_RATE / bufSize;
@@ -18,8 +19,12 @@ public class Test2 {
             if (i != 9) {
                 sub = (Base_Hz_cnt[i + 1] - 1) - Base_Hz_cnt[i];
                 System.out.println(sub);
+                ratio = 1.0 / sub;
+                tmp = 1.0;
                 for (j = Base_Hz_cnt[i]; j < Base_Hz_cnt[i + 1]; j++) {
-
+                    tmp -= ratio;
+                    volUp[k] = tmp;
+                    k++;
                 }
                 for (j = Base_Hz_cnt[i + 1]; j < Base_Hz_cnt[i]; j--) {
 
