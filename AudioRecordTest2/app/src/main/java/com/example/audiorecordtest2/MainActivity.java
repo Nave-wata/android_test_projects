@@ -51,10 +51,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         btn = findViewById(R.id.button_id);
+        btn.setText(R.string.stopping_label);
         btn.setOnClickListener(this);
 
         mText = findViewById(R.id.textView);
-        mText.setText(vol_str[seekBarProgress]);
+        mText.setText(R.string.stopping_label);
 
         // AudioRecordの作成
         audioRec = new AudioRecord(
@@ -83,7 +84,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 // つまみが変更された時に処理が実行される
-                mText.setText(vol_str[progress]);
                 vol = vol_ary[progress];
                 Log.v("SeekBar", "progress" + vol);
             }
@@ -125,7 +125,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         if (v == btn) {
             if (bIsRecording) {
-                btn.setText(R.string.start_label);
+                btn.setText(R.string.stopping_label);
                 bIsRecording = false;
             } else {
                 // 録音開始
@@ -149,7 +149,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     player.stop();
                     audioRec.stop();
                 }).start();
-                btn.setText(R.string.stop_label);
+                btn.setText(R.string.running_label);
             }
         }
     }
