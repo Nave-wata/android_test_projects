@@ -1,5 +1,7 @@
 # android_test_projects
 
+ここにvscodeのリポジトリあるけどそれはそれ単体でウィンドウ開いてやる．
+
 ## AudioRecordSample [Repository](https://github.com/Nave-wata/android_test_projects/tree/main/AudioRecordSample)
 
 - [Android の AudioRecord の基本を理解する](https://qiita.com/ino-shin/items/214dba25f49fa098402f)
