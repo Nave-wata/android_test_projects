@@ -30,6 +30,7 @@ public class FFT_Test2_vscode {
         System.out.println("data2");
         for (int i = 0; i < FFT_SIZE; i++) {
             // フーリエ変換後のデータを出力
+            data2[i] *= 2;
             System.out.println("FFT:  i = " + i + ", val = " + data2[i]);
         }
         System.out.println();
