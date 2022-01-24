@@ -25,7 +25,7 @@ public class FFT_Test2_vscode {
         System.out.println();
 
         // 逆フーリエ変換
-        fft2.realInverse(data, true);
+        fft1.realInverseFull(data, true);
         for (int i = 0; i < FFT_SIZE; i++) {
             // 逆フーリエ変換後のデータを出力
             System.out.println("IFFT: i = " + i + ", val = " + data[i]);
