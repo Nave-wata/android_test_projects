@@ -1,7 +1,7 @@
 import org.jtransforms.fft.DoubleFFT_1D;
 
 public class FFT_Test2_vscode {
-    static int FFT_SIZE = 10;
+    static int FFT_SIZE = 20;
     static double[] data = new double[FFT_SIZE];
     static double[] data2 = new double[FFT_SIZE];
 
@@ -12,7 +12,7 @@ public class FFT_Test2_vscode {
         }
         System.out.println();
 
-        DoubleFFT_1D fft = new DoubleFFT_1D(FFT_SIZE);
+        DoubleFFT_1D fft = new DoubleFFT_1D(5);
 
         // フーリエ変換(FFT)の実行
         fft.realForwardFull(data);
@@ -20,7 +20,6 @@ public class FFT_Test2_vscode {
         for (int i = 0; i < FFT_SIZE; i++) {
             // フーリエ変換後のデータを出力
             System.out.println("FFT:  i = " + i + ", val = " + data[i]);
-            data2[i] = data[i] * 2.0;
         }
         System.out.println();
 
@@ -29,13 +28,6 @@ public class FFT_Test2_vscode {
         for (int i = 0; i < FFT_SIZE; i++) {
             // 逆フーリエ変換後のデータを出力
             System.out.println("IFFT: i = " + i + ", val = " + data[i]);
-        }
-        System.out.println();
-
-        // 23行目で2かけたら逆フーリエ変換しても2かけられてた．
-        fft.realInverse(data2, true);
-        for (int i = 0; i < FFT_SIZE; i++) {
-            System.out.println("M : i = " + i + ", val = " + data2[i]);
         }
         System.out.println();
     }
