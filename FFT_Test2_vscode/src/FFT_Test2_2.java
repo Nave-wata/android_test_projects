@@ -4,7 +4,7 @@ import java.util.*;
 public class FFT_Test2_2 {
     public static void main(String[] args) {
         ArrayList<DoubleFFT_1D> ffts = new ArrayList<DoubleFFT_1D>();
-        double[] data = { 10, 20, 30, 40, 50 };
+        double[] data = { 11, 12, 13, 14, 15 };
 
         ffts.add(DoubleFFT_1D(5));
         ffts.add(DoubleFFT_1D(5));
