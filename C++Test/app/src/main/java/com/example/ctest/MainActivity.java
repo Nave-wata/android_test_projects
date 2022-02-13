@@ -20,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
 
+    public native String getMessage();
+
+    // Used to load the 'ctest2' library on application startup.
+    static {
+        System.loadLibrary("ctest");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
