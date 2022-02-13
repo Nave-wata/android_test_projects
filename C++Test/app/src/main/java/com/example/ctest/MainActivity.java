@@ -3,6 +3,7 @@ package com.example.ctest;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -14,11 +15,13 @@ import com.example.ctest.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+    public TextView textView;
 
     public native String getMessage();
 
@@ -33,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        textView = findViewById(R.id.textview_first);
+        getMessage();
 
         setSupportActionBar(binding.toolbar);
 

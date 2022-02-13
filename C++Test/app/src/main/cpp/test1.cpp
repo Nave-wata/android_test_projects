@@ -2,7 +2,7 @@
 #include <jni.h>
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_example_ctest2_MainActivity_stringFromJNI(
+Java_com_example_ctest2_MainActivity_getMessage(
         JNIEnv* env,
         jobject /* this */) {
     std::string hello = "Hello from C++";
